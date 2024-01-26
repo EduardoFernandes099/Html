@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        #conteudo{
+            padding: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercicios HTML</h1> 
+    </header>
+    <nav>
+        <a href  wm-nav="estudo.html">Teste</a>
+        <a href wm-nav="som.html">Teste2</a>
+        <a href wm-nav="listas.html">Teste3</a>
+        <a href wm-nav="listaAlinhada.html">Teste4</a>
+    </nav>
+    <section id="conteudo">
+
+    </section>
+    <footer>
+    
+        Teste do curso
+    </footer>
+
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+            link.onclick = function(e) {
+                e.preventDefault()
+                
+                
+                
+                fetch(link.getAttribute('wm-nav'))
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+    
+</body>
+</html>
